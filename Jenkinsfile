@@ -58,7 +58,7 @@ pipeline {
 						docker_image = docker.build "${IMAGE_NAME}"
 					   }
 					   docker.withRegistry('',DOCKER_PASS){
-						   dokcer_image.push("${IMAGE_TAG}")
+						   docker_image.push("${IMAGE_TAG}")
 						   docker-image.push('latest')
 					   }
 					
