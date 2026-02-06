@@ -56,10 +56,8 @@ pipeline {
 				script {
 					   docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
 						docker_image = docker.build "${IMAGE_NAME}"
-					   }
-					   docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
-						   docker_image.push("${IMAGE_TAG}")
-						   docker_image.push('latest')
+						docker_image.push("${IMAGE_TAG}")
+						docker_image.push('latest')
 					   }
 					
 					   
