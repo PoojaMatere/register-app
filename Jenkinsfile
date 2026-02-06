@@ -59,7 +59,7 @@ pipeline {
 					   }
 					   docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
 						   docker_image.push("${IMAGE_TAG}")
-						   docker-image.push('latest')
+						   docker_image.push('latest')
 					   }
 					
 					   
