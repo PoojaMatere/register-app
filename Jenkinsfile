@@ -47,14 +47,14 @@ pipeline {
 		stage ("Quality gate"){
 			steps {
 				script {
-					waitForQualityGate abortPipeline: false , CredentialsId: 'Jenkins-sonarqube-token'
+					waitForQualityGate abortPipeline: false 
 				}
 			}
 		}
 		stage ("Build and Push Docker Image"){
 			steps {
 				script {
-					   docker.withRegistry('https://index.docker.io/v1/',DOCKER_PASS){
+					   docker.withRegistry('https://index.docker.io/v1/',dockerhub){
 						docker_image = docker.build "${IMAGE_NAME}"
 						docker_image.push("${IMAGE_TAG}")
 						docker_image.push('latest')
